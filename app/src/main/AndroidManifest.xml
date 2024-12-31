@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Camera permission -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- Specify that the app requires a camera -->
+    <uses-feature android:name="android.hardware.camera"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.HelloWorld"
+        tools:targetApi="31">
+
+        <!-- Add FileProvider configuration -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.hellorescue.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ActivityIdScanner"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".MobileNumberInputActivity"
+            android:exported="true">
+        </activity>
+
+        <activity android:name=".client.PersonalInformationFragment" />
+        <activity android:name=".client.services.ChangePasswordFragment" />
+        <activity android:name=".client.HowToUseFragment" />
+        <activity android:name=".client.services.AboutUsFragment" />
+        <activity android:name=".client.FAQFragment" />
+
+        <activity android:name=".TermsActivity"
+            android:exported="true"/>
+
+        <activity android:name=".Main_Navigation"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity android:name=".ServicesFragment"
+            android:exported="true"/>
+
+        <activity android:name=".responderpolice.ResponderPoliceActivity"
+            android:exported="true"/>
+
+        <activity android:name=".responderpolice.RescueAlertPoliceFragment"
+            android:exported="true"/>
+
+        <activity android:name=".responderpolice.AccountInformationPoliceFragment"
+            android:exported="true"/>
+
+        <activity android:name=".responderpolice.UpdateHotlinePoliceFragment"
+            android:exported="true"/>
+
+        <activity android:name=".responderpolice.HistoryPoliceFragment"
+            android:exported="true"/>
+
+        <activity android:name=".responderpolice.HowToUsePoliceFragment"
+            android:exported="true"/>
+
+        <activity android:name=".responderpolice.AboutPoliceFragment"
+            android:exported="true"/>
+
+        <activity android:name=".lgu.AdminLguActivity"
+            android:exported="true"/>
+
+        <activity android:name=".lgu.AccountInformationLguFragment"
+            android:exported="true"/>
+
+        <activity android:name=".lgu.AddResponderLguFragment"
+            android:exported="true"/>
+
+        <activity android:name=".barangay.ResponderBarangayActivity"
+            android:exported="true"/>
+
+        <activity android:name=".barangay.RescueAlertBarangayFragment"
+            android:exported="true"/>
+
+        <activity android:name=".barangay.AccountInformationBarangayFragment"
+            android:exported="true"/>
+
+        <activity android:name=".barangay.UpdateHotlineBarangayFragment"
+            android:exported="true"/>
+
+        <activity android:name=".barangay.HistoryBarangayFragment"
+            android:exported="true"/>
+
+        <activity android:name=".barangay.AddEligibleUserBarangayFragment"
+            android:exported="true"/>
+
+    </application>
+
+</manifest>
